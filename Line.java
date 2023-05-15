@@ -1,5 +1,7 @@
 package practice.linecomparison;
 
+import java.util.Objects;
+
 public class Line {
     Point p1;
     Point p2;
@@ -11,5 +13,15 @@ public class Line {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Line line)) return false;
+        return Float.compare(line.length, length) == 0;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(length);
+    }
 }
